@@ -1,4 +1,4 @@
-"""This is the main module.
+"""This is the ingestion module.
 
 This module imports api_integrations and csv_integrations,
 to be able to do all the required tasks.
@@ -16,13 +16,19 @@ import integrations.csv_integrations as ci
 import integrations.api_integrations as ai
 
 
-def process_csv_files(n: int):
+def process_csv_files(n: int, branches_names: list):
+    """Does all the required processing to the .csv
+
+    Imports all the necessary methods from
+    csv_integrations to perform the assigned tasks.
+    Return: store_df and save it on .data/
+    """
     prices_url = 'https://cornershop-scrapers-evaluation.s3.amazonaws.com/public/PRICES-STOCK.csv'
     products_url = 'https://cornershop-scrapers-evaluation.s3.amazonaws.com/public/PRODUCTS.csv'
     prices_df = ci.open_csv_url(prices_url)
     products_df = ci.open_csv_url(products_url)
 
-    prices_df = ci.filter_df_bycolumn(prices_df, 'BRANCH', ['MM', 'RHSM'])
+    prices_df = ci.filter_df_bycolumn(prices_df, 'BRANCH', branches_names)
     prices_df = ci.filter_df_byamount(prices_df, 'STOCK', 0)
     prices_df = ci.select_df_n_highest_branch(prices_df, n, 'PRICE')
 
@@ -39,6 +45,11 @@ def process_csv_files(n: int):
 
 
 def process_api_calls(df: pd.DataFrame, from_n: int, to_n: int):
+    """Does all the required API calls
+
+    Imports all the necessary methods from
+    api_integrations to perform the assigned tasks.
+    """
     token, BASE_URL = ai.get_credentials()
     stores_dict = ai.get_stores_ids(token, BASE_URL)
     richard_id = ai.get_merchant_id(stores_dict, "Richard's")

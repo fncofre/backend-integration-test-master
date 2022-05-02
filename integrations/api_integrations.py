@@ -28,6 +28,10 @@ def get_credentials():
 
 
 def read_credentials():
+    """Search 'credentials.json' file to get API-credentials
+
+    Return: Dictionary with all the variables from 'credentials.json'
+    """
     if not os.path.isfile("credentials.json"):
         print("'credentials.json' not found! Please add it and try again.")
         return False
