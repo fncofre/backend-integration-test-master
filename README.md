@@ -5,7 +5,7 @@ The solution focuses on an optimal, reusable and adaptable way to complete the r
 
 To run the project, you only need to run the `main.py` file. And, it needs the existence of the file `credentials.json` in the root of the project, this .json has the `API-credentials`, and the `URL` of the API.
 
-`credentials.json`
+*credentials.json*
 ```javascript
 {
     "GRAND_TYPE" : "grand_type",
@@ -16,8 +16,9 @@ To run the project, you only need to run the `main.py` file. And, it needs the e
 ```
 I opted to use a .json file for the credentials for ease of use over environment variables for this project.
 
-The tree structure of the code is represented as follows. For possible future implementations, to have an easy accessibility to the modules - packages, and a clear order in the files by the design of the software.
+The `tree structure` of the code is represented as follows. For possible future implementations, to have an easy accessibility to the modules - packages, and a clear order in the files by the design of the software.
 
+*tree structure*
 ```bash
 ├───backend-integration-test-master
 │   │   .gitattributes
