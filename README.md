@@ -1,5 +1,29 @@
 # New skill test for integrations
 
+## About the solution - Felipe Cofré
+```bash
+├───backend-integration-test-master
+│   │   .gitattributes
+│   │   .gitignore
+│   │   credentials.json
+│   │   main.py
+│   │   README.md
+│   │   requirements.txt
+│   │   test_integrations.py
+│   │
+│   ├───data
+│   │       store_products.csv
+│   │
+│   └───integrations
+│       │   api_integrations.py
+│       │   csv_integrations.py
+│       │   __init__.py
+│       │
+│       └───richart_wholesale_club
+│               ingestion.py
+│               __init__.py
+```
+
 # Cornershop's backend integrations test
 
 ## Before you begin
