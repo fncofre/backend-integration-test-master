@@ -1,6 +1,23 @@
 # New skill test for integrations
 
 ## About the solution - Felipe Cofré
+The solution focuses on an optimal, reusable and adaptable way to complete the required tasks. It should be noted that, the only external libraries allowed was `Pandas - Numpy - Requests`.
+
+To run the project, you only need to run the `main.py` file. And, it needs the existence of the file `credentials.json` in the root of the project, this .json has the `API-credentials`, and the `URL` of the API.
+
+`credentials.json`
+```javascript
+{
+    "GRAND_TYPE" : "grand_type",
+    "CLIENT_ID" : "client_id",
+    "CLIENT_SECRET" : "client_secret",
+    "BASE_URL" : "http://localhost:5000"
+}
+```
+I opted to use a .json file for the credentials for ease of use over environment variables for this project.
+
+The tree structure of the code is represented as follows. For possible future implementations, to have an easy accessibility to the modules - packages, and a clear order in the files by the design of the software.
+
 ```bash
 ├───backend-integration-test-master
 │   │   .gitattributes
@@ -23,6 +40,12 @@
 │               ingestion.py
 │               __init__.py
 ```
+
+The `Testing area` of the project was left in the root of the project, since it was a small amount of tests, and could be implemented with good practices in a single `test_integrations.py` file.
+
+On the other hand, the `Programming style` of the code is mainly governed by `PEP8` stylistic conventions, to achieve readability of the code and consistency between programs from different users.
+
+Finally, the results of the data processing strategy can be seen in the file `store_products.csv`, having an example of the `DataFrame`, with which the API calls were then made; also analyzing the methodologies used in each method of the project to process the data.
 
 # Cornershop's backend integrations test
 
