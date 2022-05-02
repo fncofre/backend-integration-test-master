@@ -10,6 +10,7 @@ import os
 import pandas as pd
 import numpy as np
 
+
 def open_csv_url(url: str) -> pd.DataFrame:
     """Read the .csv directly from the URL
 
@@ -77,7 +78,7 @@ def clean_df_tags(df: pd.DataFrame, column: str):
     Erasing HTML tags from the values of 'column'
     Return: Cleaned DataFrame
     """
-    cleanr = re.compile('<.*?>') 
+    cleanr = re.compile('<.*?>')
     df[column] = [re.sub(cleanr, '', x) for x in df[column]]
     return df
 
@@ -93,15 +94,16 @@ def update_df_prices(df: pd.DataFrame):
     for row in df.itertuples():
         key = str(row[1])
         value = {
-            'branch':row[2],
-            'stock':row[4],
-            'price':row[3]
-            }
+            'branch': row[2],
+            'stock': row[4],
+            'price': row[3]
+        }
         if key not in product_data:
             product_data[key] = [value]
         else:
             product_data[key].append(value)
-    df = pd.DataFrame(list(product_data.items()),columns=['SKU','BRANCH_PRODUCTS'])
+    df = pd.DataFrame(list(product_data.items()),
+                      columns=['SKU', 'BRANCH_PRODUCTS'])
     df['SKU'] = pd.to_numeric(df['SKU'])
     return df
 
@@ -115,10 +117,11 @@ def update_df_package(df: pd.DataFrame):
     key_words = ['UN', 'PZ', 'CC', 'LT']
     for row in df.itertuples():
         for word in key_words:
-            if word in row.ITEM_DESCRIPTION: 
+            if word in row.ITEM_DESCRIPTION:
                 package = 'UN'
                 break
-            else: package = 'KG'
+            else:
+                package = 'KG'
         if row.BUY_UNIT == '':
             df.at[row.Index, 'BUY_UNIT'] = package
     return df
@@ -132,8 +135,9 @@ def join_df_columns(df: pd.DataFrame, column: str, drop_columns: list, sep: str)
     """
     df[column] = df[column].str.cat(df[drop_columns], sep=sep)
     df[column] = df[column].str.lower()
-    for col in drop_columns: df.drop(col, inplace=True, axis=1)
-    return df    
+    for col in drop_columns:
+        df.drop(col, inplace=True, axis=1)
+    return df
 
 
 def select_df_n_highest_branch(df: pd.DataFrame, n: int, column: str):
