@@ -42,7 +42,7 @@ The `tree structure` of the code is represented as follows. For possible future 
 │               __init__.py
 ```
 
-The `Testing area` of the project was left in the root of the project, since it was a small amount of tests, and could be implemented with good practices in a single `test_integrations.py` file.
+The `Testing area` of the project was left in the root of the project, since it was a small amount of tests, and could be implemented with good practices in a single `test_integrations.py` file. To run the project tests, just need to run the file `test_integrations.py`.
 
 On the other hand, the `Programming style` of the code is mainly governed by `PEP8` stylistic conventions, to achieve readability of the code and consistency between programs from different users.
 
