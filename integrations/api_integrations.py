@@ -78,8 +78,10 @@ def update_merchant(token: str, BASE_URL: str, path: str, merch_data: dict):
     headers = {'token': token}
     r = requests.put(BASE_URL+path, headers=headers, json=merch_data)
     if r.status_code == 200:
+        print(f'{merch_data["name"]} - merchant updated successfully')
         return deserialize_bytes(r.content)
     else:
+        print(f'{merch_data["name"]} - merchant could not be updated')
         return r.status_code
 
 
@@ -90,6 +92,10 @@ def delete_merchant(token: str, BASE_URL: str, path: str):
     """
     headers = {'token': token}
     r = requests.delete(BASE_URL+path, headers=headers)
+    if(r.status_code == 200):
+        print(f'{path} - merchant deleted successfully')
+    else:
+        print(f'{path} - merchant could not be deleted')
     return r.status_code
 
 
@@ -129,4 +135,5 @@ def post_products(token: str, BASE_URL: str, merchant_id: str, df: pd.DataFrame,
         else:
             not_uploaded -= 1
         from_n += 1
+    print(f'{to_n - not_uploaded} - Products were upload to the API')
     return (not_uploaded, error_products)

@@ -33,6 +33,7 @@ def save_csv(df: pd.DataFrame, name: str):
     if not os.path.exists(path):
         os.mkdir(path)
     df.to_csv(f'./data/{name}.csv', index=None, sep='|')
+    print(f'{name}.csv - saved successfully')
     return True
 
 
