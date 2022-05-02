@@ -7,6 +7,9 @@ N_HIGHEST: The number of elements to process per branch
 N_START: From which row of the df to start uploading products
 N_END: In which row to stop uploading products
 BRANCHES_NAMES: List with the names of the selected branchs
+...
+Can add more variables, for adaptability just by adding it here,
+and replacing it in ingesion.py.
 """
 
 import integrations.richart_wholesale_club.ingestion as ing
