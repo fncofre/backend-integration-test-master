@@ -3,7 +3,7 @@
 ## About the solution - Felipe Cofré
 The solution focuses on an optimal, reusable and adaptable way to complete the required tasks. It should be noted that, the only external libraries allowed was `Pandas - Numpy - Requests`.
 
-To run the project, you only need to run the `main.py` file. And, it needs the existence of the file `credentials.json` in the root of the project, this .json has the `API-credentials`, and the `URL` of the API.
+To run the project, you only need to run the `main.py` file (used version `Python 3.7.0`). And, it needs the existence of the file `credentials.json` in the root of the project, this .json has the `API-credentials`, and the `URL` of the API.
 
 *credentials.json*
 ```javascript
