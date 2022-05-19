@@ -50,12 +50,6 @@ Finally, the results of the data processing strategy can be seen in the file `st
 
 # Cornershop's backend integrations test
 
-## Before you begin
-
-Read this document entirely before you start working on your solution. There are essential tips and notes in every section for you to succeed.
-
-The first step is to create a new private repository to upload your work. Once you have finished the test, invite @jeffersonlizar and @cornershop-hr as collaborators and send the repo link to your Cornershop recruiter, telling them that you have finished.
-
 ## Introduction
 
 A common task at Cornershop is collecting product information from external sources like CSV files. This technical test for backend integration engineers, requires you to process CSV files and then to use the data to connect it to an "external" Ingestion API (provided as a separate `integration-skill-test-server` project for you to run locally).
@@ -101,9 +95,9 @@ The following constraints apply:
 Use the following data to be able to get a valid token:
 
 ```python
-GRAND_TYPE = "client_credentials"
-CLIENT_ID = "mRkZGFjM"
-CLIENT_SECRET = "ZGVmMjMz"
+GRAND_TYPE = "--"
+CLIENT_ID = "--"
+CLIENT_SECRET = "--"
 ```
 
 Do you need more information about OAuth2? You can get more details in this document
